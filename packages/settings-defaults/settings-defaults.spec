@@ -293,6 +293,11 @@ done
 install -d %{buildroot}%{_cross_defaultsdir}
 install -d %{buildroot}%{_cross_tmpfilesdir}
 
+# Install shared journald configuration
+install -d %{buildroot}%{_cross_libdir}/systemd/journald.conf.d
+install -p -m 0644 %{_sourcedir}/../shared-defaults/journald-console.conf \
+    %{buildroot}%{_cross_libdir}/systemd/journald.conf.d/
+
 for defaults in \
   aws-dev \
   aws-ecs-2 \
@@ -323,6 +328,7 @@ done
 
 %files
 %dir %{_cross_defaultsdir}
+%{_cross_libdir}/systemd/journald.conf.d/journald-console.conf
 
 %files aws-dev
 %{_cross_defaultsdir}/aws-dev.toml
