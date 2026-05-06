@@ -5,6 +5,9 @@ project-vendor = "Bottlerocket"
 [vendor.bottlerocket]
 registry = "public.ecr.aws/bottlerocket"
 
+[vendor.my-vendor]
+registry = "localhost:5000"
+
 [sdk]
 name = "bottlerocket-sdk"
 version = "0.72.0"
@@ -17,5 +20,5 @@ vendor = "bottlerocket"
 
 [[kit]]
 name = "bottlerocket-core-kit"
-version = "14.1.0"
-vendor = "bottlerocket"
+version = "14.2.0-0"
+vendor = "my-vendor"
