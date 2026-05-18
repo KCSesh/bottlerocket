@@ -14,7 +14,7 @@ uefi-secure-boot = true
 systemd-networkd = true
 erofs-root-partition = true
 external-kmod-development = false
-encrypted-storage = true
+encrypted-storage = false
 in-place-updates = false
 
 [package.metadata.build-variant]
@@ -26,7 +26,6 @@ kernel-parameters = [
     "net.ifnames=0",
     "netdog.default-interface=eth0:dhcp4,dhcp6?",
     "quiet",
-    "enforcing=0",
 ]
 included-packages = [
 # core
@@ -47,12 +46,14 @@ included-packages = [
     "chrony-tools",
 # firecracker
     "firecracker",
+    "guest-images",
 ]
 
 [lib]
 path = "../variants.rs"
 
 [build-dependencies]
+guest-images = { path = "../../packages/guest-images" }
 settings-defaults = { path = "../../packages/settings-defaults" }
 settings-plugins = { path = "../../packages/settings-plugins" }
 settings-migrations = { path = "../../packages/settings-migrations" }

@@ -1,0 +1,47 @@
+[package]
+name = "aws-nitro-guest"
+version = "0.1.0"
+edition = "2021"
+publish = false
+build = "../build.rs"
+exclude = ["README.md"]
+
+[package.metadata.build-variant]
+platform = "nitro-guest"
+image-format = "eif"
+kernel-parameters = [
+    "reboot=k",
+    "panic=30",
+    "pci=off",
+    "nomodules",
+    "console=hvc0",
+]
+included-packages = [
+    "kernel-6.18",
+    "systemd-257",
+    "containerd-2.1",
+    "eif-init",
+]
+
+[package.metadata.build-variant.image-layout]
+os-image-size-gib = 1
+data-image-size-gib = 1
+partition-plan = "unified"
+
+[package.metadata.build-variant.image-features]
+grub-set-private-var = false
+xfs-data-partition = false
+uefi-secure-boot = false
+systemd-networkd = false
+erofs-root-partition = true
+external-kmod-development = false
+encrypted-storage = false
+in-place-updates = false
+
+[lib]
+path = "../variants.rs"
+
+[build-dependencies]
+settings-defaults = { path = "../../packages/settings-defaults" }
+settings-plugins = { path = "../../packages/settings-plugins" }
+settings-migrations = { path = "../../packages/settings-migrations" }
