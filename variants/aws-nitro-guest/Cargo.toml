@@ -7,20 +7,24 @@ build = "../build.rs"
 exclude = ["README.md"]
 
 [package.metadata.build-variant]
-platform = "nitro-guest"
 image-format = "eif"
 kernel-parameters = [
     "reboot=k",
     "panic=30",
     "pci=off",
-    "nomodules",
-    "console=hvc0",
+    "console=ttyS0",
+    "i8042.noaux",
+    "i8042.nomux",
+    "i8042.nopnp",
+    "i8042.dumbkbd",
+    "random.trust_cpu=on",
 ]
 included-packages = [
     "kernel-6.18",
+    "kernel-6.18-vmlinux",
     "systemd-257",
     "containerd-2.1",
-    "eif-init",
+    "release"
 ]
 
 [package.metadata.build-variant.image-layout]

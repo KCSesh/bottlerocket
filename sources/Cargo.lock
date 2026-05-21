@@ -1973,6 +1973,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "settings-defaults-aws-nitro-guest"
+version = "0.1.0"
+dependencies = [
+ "bottlerocket-defaults-helper",
+]
+
+[[package]]
 name = "settings-defaults-metal-dev"
 version = "0.1.0"
 dependencies = [
@@ -2386,6 +2393,17 @@ dependencies = [
 
 [[package]]
 name = "settings-plugin-aws-k8s-nvidia"
+version = "0.1.0"
+dependencies = [
+ "abi_stable",
+ "bottlerocket-settings-models",
+ "bottlerocket-settings-plugin",
+ "serde",
+ "serde_json",
+]
+
+[[package]]
+name = "settings-plugin-aws-nitro-guest"
 version = "0.1.0"
 dependencies = [
  "abi_stable",

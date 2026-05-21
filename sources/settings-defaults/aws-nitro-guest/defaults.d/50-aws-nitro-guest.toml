@@ -1,0 +1,9 @@
+# Nitro Guest variant-specific settings
+# Minimal enclave environment - no external network, no updates
+
+[settings.metrics]
+send-metrics = false
+service-checks = ["containerd", "host-containerd"]
+
+[metadata.settings.network]
+affected-services = ["containerd", "host-containerd", "host-containers"]

@@ -47,6 +47,8 @@ included-packages = [
 # firecracker
     "firecracker",
     "guest-images",
+# nitro enclaves
+# "nitro-cli",
 ]
 
 [lib]

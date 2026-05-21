@@ -39,6 +39,8 @@ included-packages = [
     "iputils",
     "strace",
     "chrony-tools",
+# firecracker
+    "firecracker",
 ]
 
 [lib]

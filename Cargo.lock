@@ -6,6 +6,7 @@ version = 4
 name = "aws-dev"
 version = "0.1.0"
 dependencies = [
+ "guest-images",
  "settings-defaults",
  "settings-migrations",
  "settings-plugins",
@@ -298,6 +299,19 @@ dependencies = [
  "settings-migrations",
  "settings-plugins",
 ]
+
+[[package]]
+name = "aws-nitro-guest"
+version = "0.1.0"
+dependencies = [
+ "settings-defaults",
+ "settings-migrations",
+ "settings-plugins",
+]
+
+[[package]]
+name = "guest-images"
+version = "0.1.0"
 
 [[package]]
 name = "metal-dev"

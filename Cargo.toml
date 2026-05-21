@@ -5,6 +5,7 @@ members = [
     "packages/settings-plugins",
 
     "variants/aws-dev",
+    "variants/aws-nitro-guest",
     "variants/aws-ecs-2",
     "variants/aws-ecs-2-fips",
     "variants/aws-ecs-2-nvidia",

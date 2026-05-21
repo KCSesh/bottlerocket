@@ -83,6 +83,16 @@ Conflicts: %{_cross_os}settings-defaults(any)
 %description aws-ecs-3-nvidia
 %{summary}.
 
+%package aws-nitro-guest
+Summary: Settings defaults for the aws-nitro-guest variant
+Requires: %{_cross_os}variant(aws-nitro-guest)
+Provides: %{_cross_os}settings-defaults(any)
+Provides: %{_cross_os}settings-defaults(aws-nitro-guest)
+Conflicts: %{_cross_os}settings-defaults(any)
+
+%description aws-nitro-guest
+%{summary}.
+
 %package aws-k8s-1.31
 Summary: Settings defaults for the aws-k8s 1.30 through 1.31 variants
 Requires: (%{shrink:
@@ -327,6 +337,7 @@ for defaults in \
   aws-ecs-2-nvidia \
   aws-ecs-3 \
   aws-ecs-3-nvidia \
+  aws-nitro-guest \
   aws-k8s-1.31 \
   aws-k8s-1.31-nvidia \
   aws-k8s-1.32 \
@@ -368,6 +379,7 @@ for defaults in \
   aws-ecs-2-nvidia \
   aws-ecs-3 \
   aws-ecs-3-nvidia \
+  aws-nitro-guest \
   aws-k8s-1.31 \
   aws-k8s-1.31-nvidia \
   aws-k8s-1.32 \
@@ -417,6 +429,10 @@ done
 %files aws-ecs-3-nvidia
 %{_cross_defaultsdir}/aws-ecs-3-nvidia.toml
 %{_cross_tmpfilesdir}/storewolf-defaults-aws-ecs-3-nvidia.conf
+
+%files aws-nitro-guest
+%{_cross_defaultsdir}/aws-nitro-guest.toml
+%{_cross_tmpfilesdir}/storewolf-defaults-aws-nitro-guest.conf
 
 %files aws-k8s-1.31
 %{_cross_defaultsdir}/aws-k8s-1.31.toml

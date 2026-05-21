@@ -66,6 +66,16 @@ Conflicts: %{_cross_os}settings-plugin(any)
 %description aws-ecs-3
 %{summary}.
 
+%package aws-nitro-guest
+Summary: Settings plugin for the aws-nitro-guest variant
+Requires: %{_cross_os}variant(aws-nitro-guest)
+Provides: %{_cross_os}settings-plugin(any)
+Provides: %{_cross_os}settings-plugin(aws-nitro-guest)
+Conflicts: %{_cross_os}settings-plugin(any)
+
+%description aws-nitro-guest
+%{summary}.
+
 %package aws-k8s
 Summary: Settings plugin for the aws-k8s variants
 Requires: %{_cross_os}variant-family(aws-k8s)
@@ -160,6 +170,7 @@ Conflicts: %{_cross_os}settings-plugin(any)
   -p settings-plugin-aws-dev \
   -p settings-plugin-aws-ecs-2 \
   -p settings-plugin-aws-ecs-3 \
+  -p settings-plugin-aws-nitro-guest \
   -p settings-plugin-aws-k8s \
   -p settings-plugin-aws-k8s-nvidia \
   -p settings-plugin-metal-dev \
@@ -176,6 +187,7 @@ for plugin in \
   aws-dev \
   aws-ecs-2 \
   aws-ecs-3 \
+  aws-nitro-guest \
   aws-k8s-nvidia \
   aws-k8s \
   metal-dev \
@@ -213,6 +225,11 @@ done
 %{_cross_pluginsdir}/aws-ecs-3/libsettings.so
 %{_cross_factorydir}%{_cross_sysconfdir}/ld.so.conf.d/aws-ecs-3.conf
 %{_cross_tmpfilesdir}/settings-plugin-aws-ecs-3.conf
+
+%files aws-nitro-guest
+%{_cross_pluginsdir}/aws-nitro-guest/libsettings.so
+%{_cross_factorydir}%{_cross_sysconfdir}/ld.so.conf.d/aws-nitro-guest.conf
+%{_cross_tmpfilesdir}/settings-plugin-aws-nitro-guest.conf
 
 %files aws-k8s
 %{_cross_pluginsdir}/aws-k8s/libsettings.so
